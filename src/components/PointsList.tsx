@@ -32,7 +32,7 @@ class PointsList extends Component<Props, State> {
     }
 
     async componentDidMount(){
-        axios.get<[Points]>('http://localhost:8001/points')
+        axios.get<[Points]>('http://localhost:8000/points')
         .then(response => {
             console.log('res', response)
             this.setState({
@@ -49,17 +49,17 @@ class PointsList extends Component<Props, State> {
                 <CardColumns>
                     {this.state.points.length ?
                         this.state.points.map((point) =>
-                                                           <Card key={point.id}>
-                                                                <Card.Header>{ point.image }</Card.Header>
-                                                                <Card.Body>
-                                                                <Card.Title>{ point.name }</Card.Title>
-                                                                    <Card.Text>
-                                                                    { point.email },
-                                                                    { point.city }- {point.uf}
-                                                                    </Card.Text>
-                                                                </Card.Body>
-                                                            </Card>) :
-                        null
+                        <Card style={{ width: '15rem', margin: '10px' }} key={point.id}>
+                            <Card.Img variant="top" src={ point.image } />
+                            <Card.Body>
+                            <Card.Title>{ point.name }</Card.Title>
+                                <Card.Text>
+                                { point.email },
+                                { point.city }- {point.uf}
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>) :
+                        <h3>Not Found!</h3>
                     }
                 </CardColumns>
             </div>

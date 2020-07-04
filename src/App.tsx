@@ -1,15 +1,13 @@
 import React, { Component } from 'react';
-import PointsList from './components/PointsList'
-import { Jumbotron } from 'react-bootstrap'
+// import { Jumbotron, Container } from 'react-bootstrap'
+import './App.css';
+import Routes from './routes';
 
 class App extends Component {
   render(){
 
     return (
-      <div className='App'>
-            <Jumbotron><h1>LIST OF POINTS</h1></Jumbotron>
-            <PointsList newList={true} />
-      </div>
+      <Routes />
     );
   }
 }
